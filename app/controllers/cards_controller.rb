@@ -11,7 +11,7 @@ class CardsController < ApplicationController
 
   def show
     card = Card.find_by(id: params[:id])
-      if memory
+      if card
         render json: card, except: [:created_at, :updated_at]
       else
         render json: "Error: The card you are searching for does not exist."
@@ -20,7 +20,7 @@ class CardsController < ApplicationController
 
   def create
     card = Card.create(card_params)
-    if memory.save
+    if card.save
       render json: card
     else
       render json: card.errors.full_messages, status: :unprocessable_entity
@@ -48,6 +48,6 @@ class CardsController < ApplicationController
   private
 
     def card_params
-      params.require(:card).permit(:title, :content, :foreign_key)
+      params.require(:card).permit(:title, :content, :deck_id)
     end
 end
