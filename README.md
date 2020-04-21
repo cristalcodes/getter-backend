@@ -1,6 +1,6 @@
 # Getter
 
-Getter is a Rails RESTful API backend application that serves to create and maintain collections of task items.
+Getter is a Rails RESTful API backend application that serves to create and maintain collections of task items, and works together with Getter's React front-end to create a full user experience.
 
 ## Installation
 
